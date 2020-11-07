@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'store.apps.StoreConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -121,10 +122,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
 ]
 
-MEDIA_URL='/images/'
+MEDIA_URL = '/images/'
 
-MEDIA_ROOT=os.path.join(BASE_DIR, 'static/images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'store'
+# THIS WILL REDIRECT YOU TO THE STORE HOMEPAGE WHEN LOGGED IN
+
+LOGIN_URL = 'login'
