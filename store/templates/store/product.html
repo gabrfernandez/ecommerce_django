@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buy Product</title>
+    {% extends 'store/main.html' %} {% load static %}
+  </head>
+  <body>
+    {% block content%}
+    <h1>{{product.name}}</h1>
+    <img class="img-fluid" src="{{product.imageURL}}" />
+    <h4>${{product.price}}</h4>
+    <button
+      data-product="{{product.id}}"
+      data-action="add"
+      class="btn btn-outline-secondary add-btn update-cart"
+    >
+      Add to Cart
+    </button>
+    {%endblock content%}
+  </body>
+</html>

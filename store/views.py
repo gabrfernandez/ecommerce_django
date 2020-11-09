@@ -117,3 +117,10 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, 'store/register.html', {'form': form})
+
+
+def product_page(request, product_id):
+    context = {
+        "product": Product.objects.get(id=product_id)
+    }
+    return render(request, "store/product.html", context)
