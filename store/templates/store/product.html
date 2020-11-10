@@ -10,7 +10,6 @@
     {% block content%}
     <h1>{{product.name}}</h1>
     <img class="img-fluid" src="{{product.imageURL}}" />
-    <h4>${{product.price}}</h4>
     <button
       data-product="{{product.id}}"
       data-action="add"
@@ -18,6 +17,9 @@
     >
       Add to Cart
     </button>
+    <h4 style="display: inline-block; float: right">
+      <strong>${{product.price}}</strong>
+    </h4>
     {%endblock content%}
   </body>
 </html>

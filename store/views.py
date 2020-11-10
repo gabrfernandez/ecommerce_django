@@ -15,7 +15,7 @@ from .forms import UserRegisterForm  # from forms.py
 def store(request):
     data = cartData(request)
     cartItems = data['cartItems']
-
+    order = data['order']
     products = Product.objects.all()
     context = {
         'products': products, 'cartItems': cartItems
@@ -109,10 +109,12 @@ def register(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            Customer.objects.create(
+                user=user, name=user.username, email=user.email)
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}!')
-            return redirect('store')
+            return redirect('login')
 
     else:
         form = UserRegisterForm()
@@ -120,7 +122,11 @@ def register(request):
 
 
 def product_page(request, product_id):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
     context = {
-        "product": Product.objects.get(id=product_id)
+        "product": Product.objects.get(id=product_id),
+        "cartItems": cartItems,
     }
     return render(request, "store/product.html", context)
