@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-
+import environ
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -21,6 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'prng)8-88sh@^jx^(5+-x^x8-t4d*re&x+sravoze4bxgg3v*#'
+PAYPAL_CLIENT_ID = "AVCqbt3bfEdUdP2UJrl1YFLRrWAIW8n5YQJxrl_FlQhsXp3UctiMNXs0D5SOZeaGdxjCkBEtVNrNqr4q"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
