@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'store.apps.StoreConfig',
+    'register.apps.RegisterConfig',
     'crispy_forms',
 ]
 
@@ -136,3 +137,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'store'
 
 LOGIN_URL = 'login'
+
+LOGOUT_REDIRECT_URL = '/'

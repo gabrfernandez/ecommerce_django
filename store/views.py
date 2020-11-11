@@ -6,8 +6,8 @@ import datetime
 from . utils import cookieCart, cartData, guestOrder
 
 # from django.contrib.auth.forms import UserCreationForm  ,inherit from UserRegisterForm
-from django.contrib import messages  # used for flash messages
-from .forms import UserRegisterForm  # from forms.py
+# from django.contrib import messages   used for flash messages
+# from .forms import UserRegisterForm   from forms.py
 # from django.contrib.auth.decorators import login_required
 
 
@@ -105,20 +105,20 @@ def processOrder(request):
     return JsonResponse('Payment complete', safe=False)
 
 
-def register(request):
-    if request.method == "POST":
-        form = UserRegisterForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            Customer.objects.create(
-                user=user, name=user.username, email=user.email)
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}!')
-            return redirect('login')
+# def register(request):
+#     if request.method == "POST":
+#         form = UserRegisterForm(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             Customer.objects.create(
+#                 user=user, name=user.username, email=user.email)
+#             username = form.cleaned_data.get('username')
+#             messages.success(request, f'Account created for {username}!')
+#             return redirect('login')
 
-    else:
-        form = UserRegisterForm()
-    return render(request, 'store/register.html', {'form': form})
+#     else:
+#         form = UserRegisterForm()
+#     return render(request, 'store/register.html', {'form': form})
 
 
 def product_page(request, product_id):
